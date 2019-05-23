@@ -1,0 +1,107 @@
+package juns;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class EmployeeManagement extends JFrame {
+
+	JButton[] menu_Button;
+	JButton menu_exit_Button;
+	String[] menu_Text = {"공지사항관리","사원관리","재고관리","매출관리","사원","관리자"};
+	JPanel[] menu_Panel;
+	JPanel[] employee_BackPanel;
+	JPanel employee_List;
+	JPanel employee_Panel;
+
+	void menuPanel() {//위에 큰 버튼들
+	// 위쪽 패널[0]와 우측패널[1]로 나누는 작업
+		menu_Panel = new JPanel[3];
+		menu_Panel[0] = new JPanel();
+		menu_Panel[0].setLayout(new GridLayout(1,4));
+	
+		menu_Panel[1] = new JPanel();
+		menu_Panel[1].setLayout(new GridLayout(2,1));
+	
+		menu_Panel[2] = new JPanel();
+		menu_Panel[2].setLayout(new FlowLayout(FlowLayout.LEFT));
+	
+	// 	패널을 나눈후 버튼을 6개로 나누는 작업
+		menu_Button = new JButton[6];
+		menu_Button[0] = new JButton(menu_Text[0]);
+		menu_Button[0].setBackground(Color.red);
+		menu_Button[0].setForeground(Color.WHITE);
+		menu_Button[1] = new JButton(menu_Text[1]);
+		menu_Button[1].setBackground(Color.red);
+		menu_Button[1].setForeground(Color.WHITE);
+		menu_Button[2] = new JButton(menu_Text[2]);
+		menu_Button[2].setBackground(Color.red);
+		menu_Button[2].setForeground(Color.WHITE);
+		menu_Button[3] = new JButton(menu_Text[3]);
+		menu_Button[3].setBackground(Color.red);
+		menu_Button[3].setForeground(Color.WHITE);
+		menu_Button[4] = new JButton(menu_Text[4]);
+		menu_Button[4].setBackground(Color.red);
+		menu_Button[4].setForeground(Color.WHITE);
+		menu_Button[5] = new JButton(menu_Text[5]);
+		menu_Button[5].setBackground(Color.red);
+		menu_Button[5].setForeground(Color.WHITE);
+		menu_exit_Button = new JButton("나가기");
+		menu_exit_Button.setBackground(Color.RED);
+		menu_exit_Button.setForeground(Color.white);
+		
+	// 위쪽 패널에 4개의 버튼으로 나누는 작업 
+		menu_Panel[0].add(menu_Button[0]);
+		menu_Panel[0].add(menu_Button[1]);
+		menu_Panel[0].add(menu_Button[2]);
+		menu_Panel[0].add(menu_Button[3]);
+	// 우측 패널에 2개의 버튼으로 나누는 작업
+		menu_Panel[1].add(menu_Button[4]);
+		menu_Panel[1].add(menu_Button[5]);
+	//나가기 버튼
+		menu_Panel[2].add(menu_exit_Button);
+	}
+	void exit() {//좌측하단의 나가기 버튼
+		
+	}
+
+	void makeBackPanel() {//사원리스트와 사원뷰가 들어갈 판넬
+		
+	}
+
+	void makeList() {//좌측화면
+
+	}
+	
+	void makeEmployeePanel() {//우측화면
+
+	}
+
+
+	
+	void connectContent() {//만든것들을 다 연결시키는 작업
+		this.add("North",menu_Panel[0]);
+		this.add("East",menu_Panel[1]);
+		this.add("South",menu_Panel[2]);
+		
+	}
+
+	public EmployeeManagement(String str) {
+		menuPanel();
+		connectContent();
+		this.setVisible(true);
+		this.setSize(1280,720);
+		this.setResizable(false);
+
+	}
+
+	public static void main(String[] args) {
+		new EmployeeManagement("사원관리");
+	}
+
+}
